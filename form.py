@@ -4,4 +4,4 @@ from wtforms.validators import DataRequired
 
 class IndexForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
+    submit = SubmitField('Valider')

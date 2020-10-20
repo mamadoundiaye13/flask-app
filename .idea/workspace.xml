@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ba2c22e-5e00-405a-95a3-b40ea276d385" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/all-repos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +53,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603183989240</updated>
-      <workItem from="1603183990332" duration="16687000" />
+      <workItem from="1603183990332" duration="34386000" />
     </task>
     <task id="LOCAL-00001" summary="Add template">
       <created>1603195586836</created>
@@ -77,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603207457081</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add vue repos">
+      <created>1603208277545</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603208277545</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,18 +105,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="Add vue repos" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2" timestamp="1603207456824">
+    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2" timestamp="1603208277376">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
-    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2/72.27.1528.873@72.27.1528.873" timestamp="1603207456824" />
-    <state x="614" y="213" width="424" height="520" key="FileChooserDialogImpl" timestamp="1603195545328">
+    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2/72.27.1528.873@72.27.1528.873" timestamp="1603208277376" />
+    <state x="614" y="213" width="424" height="520" key="FileChooserDialogImpl" timestamp="1603222016493">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
-    <state x="614" y="213" width="424" height="520" key="FileChooserDialogImpl/72.27.1528.873@72.27.1528.873" timestamp="1603195545328" />
+    <state x="614" y="213" width="424" height="520" key="FileChooserDialogImpl/72.27.1528.873@72.27.1528.873" timestamp="1603222016493" />
     <state x="325" y="98" width="1022" height="737" key="SettingsEditor" timestamp="1603195550330">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
     <state x="325" y="98" width="1022" height="737" key="SettingsEditor/72.27.1528.873@72.27.1528.873" timestamp="1603195550330" />
+    <state x="527" y="202" width="618" height="522" key="find.popup" timestamp="1603222020311">
+      <screen x="72" y="27" width="1528" height="873" />
+    </state>
+    <state x="527" y="202" width="618" height="522" key="find.popup/72.27.1528.873@72.27.1528.873" timestamp="1603222020311" />
     <state x="500" y="207" key="run.anything.popup" timestamp="1603187487941">
       <screen x="72" y="27" width="1528" height="873" />
     </state>

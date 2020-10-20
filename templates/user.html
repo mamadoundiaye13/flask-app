@@ -1,44 +1,319 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="bs-docs-section">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="page-header">
-                <h1 id="tables">Repos de {{user.login}}</h1>
-            </div>
+    <div class="row my-2">
+    <div class="col-lg-8 order-lg-2">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a href="" data-target="#followers" data-toggle="tab" class="nav-link">Followers</a>
+            </li>
+            <li class="nav-item">
+                <a href="" data-target="#followings" data-toggle="tab" class="nav-link">Followings</a>
+            </li>
+            <li class="nav-item">
+                <a href="" data-target="#public_repos" data-toggle="tab" class="nav-link">Repos Publics</a>
+            </li>
+        </ul>
+        <div class="tab-content py-4">
+            <div class="tab-pane active" id="profile">
+                <h5 class="mb-3"><strong>Nom: </strong>{{user.name}} </h5>
+                <h5 class="mb-3"><strong>Login</strong> <a target="_blank" href="{{user.html_url}}">{{user.login}}</a> </h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        {% if user.company %}
+                        <h6><strong>Company</strong>: {{user.company}}</h6>
+                        {% endif %}
+                        {% if user.location %}
+                        <h6><strong>location</strong>: {{user.location}}</h6>
+                        {% endif %}
+                        {% if user.bio %}
+                        <p><strong>Bio</strong> : {{user.bio}}</p>
+                        {% endif %}
+                        {% if user.type %}
+                        <p><strong>type</strong> : {{user.type}}</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Les Repos</h6>
+                        {% for repo in repos %}
+                        <a href="#" class="badge badge-dark badge-pill">{{repo.name}}</a>
+                        {% endfor%}
+                        <hr>
+                        <span class="badge badge-primary">
+                            <i class="fa fa-user"></i>
+                            <a class="text-white" href="" data-target="#followers" data-toggle="tab">
+                                {{user.followers}} Followers
+                            </a>
+                        </span>
+                        <span class="badge badge-success">
+                            <i class="fa fa-cog"></i>
+                            <a class="text-white" href="" data-target="#followings" data-toggle="tab">
+                                {{user.following}} Forks
+                            </a>
+                        </span>
+                        <span class="badge badge-danger"><i class="fa fa-eye"></i> {{user.public_repos}} Public Repos</span>
+                        <span class="badge badge-danger"><i class="fa fa-eye"></i> {{user.public_gists}} Public Gists</span>
+                    </div>
 
-            <div class="bs-component">
-                <table class="table table-hover">
+                    <div class="col-md-12">
+                        <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Événements reçus</h5>
+
+                        <table class="table table-sm table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">Type</th>
+                                <th scope="col">Actor</th>
+                                <th scope="col">Repo</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for reposEvent in reposEvents %}
+                            <tr class="table-active">
+                                <td>{{reposEvent.type}}</td>
+                                <td><a target="_blank" href="{{reposEvent.actor.url}}">{{reposEvent.actor.login}}</a></td>
+                                <td><a target="_blank" href="{{reposEvent.repo.url}}">{{reposEvent.repo.name}}</a></td>
+                                <td>{{reposEvent.created_at}}</td>
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--/row-->
+            </div>
+            <div class="tab-pane" id="followers">
+                <h2>Les followers de {{user.name}}</h2>
+                <table class="table table-hover table-striped">
                     <thead>
                     <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Login</th>
-                        <th scope="col">Followers</th>
-                        <th scope="col">Following</th>
+                        <th scope="col">User</th>
                         <th scope="col">Type</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Created Date</th>
-                        <th scope="col">Updated Date</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr class="table-active">
-                            <td>{{user.id}}</td>
-                            <td>{{user.login}}</td>
-                            <td>{{user.followers}}</td>
-                            <td>{{user.following}}</td>
-                            <td>{{user.type}}</td>
-                            <td>{{user.location}}</td>
-                            <td>{{user.created_at}}</td>
-                            <td>{{user.updated_at}}</td>
-                        </tr>
+                        {% for reposFollower in reposFollowers %}
+                            <tr class="table-active">
+                                <td>{{reposFollower.id}}</td>
+                                <td><a target="_blank" href="{{reposFollower.html_url}}">{{reposFollower.login}}</a></td>
+                                <td>{{reposFollower.type}}</td>
+                            </tr>
+                        {% endfor %}
+
                     </tbody>
                 </table>
             </div>
+            <div class="tab-pane" id="followings">
+                <h2>Les followers de {{user.name}}</h2>
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Type</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for reposFollowing in reposFollowings %}
+                            <tr class="table-active">
+                                <td>{{reposFollowing.id}}</td>
+                                <td><a target="_blank" href="{{reposFollowing.html_url}}">{{reposFollowing.login}}</a></td>
+                                <td>{{reposFollowing.type}}</td>
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane" id="edit">
+                <form role="form">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="Jane">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="Bishop">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="email" value="email@gmail.com">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Company</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="" placeholder="Street">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-6">
+                            <input class="form-control" type="text" value="" placeholder="City">
+                        </div>
+                        <div class="col-lg-3">
+                            <input class="form-control" type="text" value="" placeholder="State">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                        <div class="col-lg-9">
+                            <select id="user_time_zone" class="form-control" size="0">
+                                <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                                <option value="Alaska">(GMT-09:00) Alaska</option>
+                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                <option value="Arizona">(GMT-07:00) Arizona</option>
+                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="janeuser">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="password" value="11111122333">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="password" value="11111122333">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-9">
+                            <input type="reset" class="btn btn-secondary" value="Cancel">
+                            <input type="button" class="btn btn-primary" value="Save Changes">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane" id="test">
+                <form role="form">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="Jane">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="Bishop">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="email" value="email@gmail.com">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Company</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" value="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="" placeholder="Street">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-6">
+                            <input class="form-control" type="text" value="" placeholder="City">
+                        </div>
+                        <div class="col-lg-3">
+                            <input class="form-control" type="text" value="" placeholder="State">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                        <div class="col-lg-9">
+                            <select id="user_time_zone" class="form-control" size="0">
+                                <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                                <option value="Alaska">(GMT-09:00) Alaska</option>
+                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                <option value="Arizona">(GMT-07:00) Arizona</option>
+                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="janeuser">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="password" value="11111122333">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="password" value="11111122333">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-9">
+                            <input type="reset" class="btn btn-secondary" value="Cancel">
+                            <input type="button" class="btn btn-primary" value="Save Changes">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-
+    <div class="col-lg-4 order-lg-1 text-center">
+        <img src="{{urlAvatar}}" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+    </div>
+</div>
 {% endblock %}
 
 
