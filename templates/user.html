@@ -62,8 +62,6 @@
                             </a>
 
                         </span>
-                        <span class="badge badge-danger"><i
-                                class="fa fa-eye"></i> {{user.public_gists}} Public Gists</span>
                     </div>
 
                     <div class="col-md-12">
@@ -82,9 +80,8 @@
                             {% for reposEvent in reposEvents %}
                             <tr class="table-active">
                                 <td>{{reposEvent.type}}</td>
-                                <td><a target="_blank" href="{{reposEvent.actor.url}}">{{reposEvent.actor.login}}</a>
-                                </td>
-                                <td><a target="_blank" href="{{reposEvent.repo.url}}">{{reposEvent.repo.name}}</a></td>
+                                <td>{{reposEvent.actor.login}</td>
+                                <td>{{reposEvent.repo.name}}</td>
                                 <td>{{reposEvent.created_at}}</td>
                             </tr>
                             {% endfor %}
