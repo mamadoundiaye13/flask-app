@@ -55,8 +55,13 @@
                                 {{user.following}} Forks
                             </a>
                         </span>
-                        <span class="badge badge-danger"><i
-                                class="fa fa-eye"></i> {{user.public_repos}} Public Repos</span>
+                        <span class="badge badge-danger">
+                            <i class="fa fa-eye"></i>
+                            <a class="text-white" href="" data-target="#public_repos" data-toggle="tab">
+                                {{user.public_repos}} Public Repos
+                            </a>
+
+                        </span>
                         <span class="badge badge-danger"><i
                                 class="fa fa-eye"></i> {{user.public_gists}} Public Gists</span>
                     </div>
@@ -134,102 +139,35 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane" id="edit">
-                <form role="form">
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">First name</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="text" value="Jane">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Last name</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="text" value="Bishop">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="email" value="email@gmail.com">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Company</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="text" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Website</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="url" value="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="text" value="" placeholder="Street">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                        <div class="col-lg-6">
-                            <input class="form-control" type="text" value="" placeholder="City">
-                        </div>
-                        <div class="col-lg-3">
-                            <input class="form-control" type="text" value="" placeholder="State">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
-                        <div class="col-lg-9">
-                            <select id="user_time_zone" class="form-control" size="0">
-                                <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                <option value="Alaska">(GMT-09:00) Alaska</option>
-                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp;
-                                    Canada)
-                                </option>
-                                <option value="Arizona">(GMT-07:00) Arizona</option>
-                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp;
-                                    Canada)
-                                </option>
-                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central
-                                    Time (US &amp; Canada)
-                                </option>
-                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp;
-                                    Canada)
-                                </option>
-                                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="text" value="janeuser">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="password" value="11111122333">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="password" value="11111122333">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                        <div class="col-lg-9">
-                            <input type="reset" class="btn btn-secondary" value="Cancel">
-                            <input type="button" class="btn btn-primary" value="Save Changes">
-                        </div>
-                    </div>
-                </form>
+            <div class="tab-pane" id="public_repos">
+                <h2>Les repos publics de {{user.name}}</h2>
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Branche</th>
+                        <th scope="col">size</th>
+                        <th scope="col">language</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for repo in repos %}
+                    <tr class="table-active">
+                        <td>{{repo.id}}</td>
+                        <td><a target="_blank" href="{{repo.owner.html_url}}">{{repo.name}}</a></td>
+                        <td>{{repo.default_branch}}</td>
+                        <td>{{repo.size}}</td>
+                        <td>{{repo.language}}</td>
+                        <td>{{repo.description}}</td>
+                        <td>{{repo.created_at}}</td>
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
             </div>
             <div class="tab-pane" id="test">
                 <form role="form">

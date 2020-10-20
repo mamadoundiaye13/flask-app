@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ba2c22e-5e00-405a-95a3-b40ea276d385" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +27,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -47,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603183989240</updated>
-      <workItem from="1603183990332" duration="35325000" />
+      <workItem from="1603183990332" duration="37141000" />
     </task>
     <task id="LOCAL-00001" summary="Add template">
       <created>1603195586836</created>
@@ -112,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603227053275</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="refactor code">
+      <created>1603227149086</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1603227149086</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,13 +138,14 @@
     <MESSAGE value="Updated base.html" />
     <MESSAGE value="add .gitignore" />
     <MESSAGE value="update .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update .gitignore" />
+    <MESSAGE value="refactor code" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor code" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2" timestamp="1603227053205">
+    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2" timestamp="1603227149008">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
-    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2/72.27.1528.873@72.27.1528.873" timestamp="1603227053205" />
+    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2/72.27.1528.873@72.27.1528.873" timestamp="1603227149008" />
     <state x="614" y="213" width="424" height="520" key="FileChooserDialogImpl" timestamp="1603222016493">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
@@ -147,10 +158,10 @@
       <screen x="72" y="27" width="1528" height="873" />
     </state>
     <state x="527" y="202" width="618" height="522" key="find.popup/72.27.1528.873@72.27.1528.873" timestamp="1603222020311" />
-    <state x="500" y="207" key="run.anything.popup" timestamp="1603187487941">
+    <state x="500" y="207" key="run.anything.popup" timestamp="1603227408959">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
-    <state x="500" y="207" key="run.anything.popup/72.27.1528.873@72.27.1528.873" timestamp="1603187487941" />
+    <state x="500" y="207" key="run.anything.popup/72.27.1528.873@72.27.1528.873" timestamp="1603227408959" />
     <state x="499" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1603198817235">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
