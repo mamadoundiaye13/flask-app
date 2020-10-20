@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="row my-2">
+<div class="row my-2">
     <div class="col-lg-8 order-lg-2">
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -20,7 +20,8 @@
         <div class="tab-content py-4">
             <div class="tab-pane active" id="profile">
                 <h5 class="mb-3"><strong>Nom: </strong>{{user.name}} </h5>
-                <h5 class="mb-3"><strong>Login</strong> <a target="_blank" href="{{user.html_url}}">{{user.login}}</a> </h5>
+                <h5 class="mb-3"><strong>Login</strong> <a target="_blank" href="{{user.html_url}}">{{user.login}}</a>
+                </h5>
                 <div class="row">
                     <div class="col-md-6">
                         {% if user.company %}
@@ -54,8 +55,10 @@
                                 {{user.following}} Forks
                             </a>
                         </span>
-                        <span class="badge badge-danger"><i class="fa fa-eye"></i> {{user.public_repos}} Public Repos</span>
-                        <span class="badge badge-danger"><i class="fa fa-eye"></i> {{user.public_gists}} Public Gists</span>
+                        <span class="badge badge-danger"><i
+                                class="fa fa-eye"></i> {{user.public_repos}} Public Repos</span>
+                        <span class="badge badge-danger"><i
+                                class="fa fa-eye"></i> {{user.public_gists}} Public Gists</span>
                     </div>
 
                     <div class="col-md-12">
@@ -74,7 +77,8 @@
                             {% for reposEvent in reposEvents %}
                             <tr class="table-active">
                                 <td>{{reposEvent.type}}</td>
-                                <td><a target="_blank" href="{{reposEvent.actor.url}}">{{reposEvent.actor.login}}</a></td>
+                                <td><a target="_blank" href="{{reposEvent.actor.url}}">{{reposEvent.actor.login}}</a>
+                                </td>
                                 <td><a target="_blank" href="{{reposEvent.repo.url}}">{{reposEvent.repo.name}}</a></td>
                                 <td>{{reposEvent.created_at}}</td>
                             </tr>
@@ -97,13 +101,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                        {% for reposFollower in reposFollowers %}
-                            <tr class="table-active">
-                                <td>{{reposFollower.id}}</td>
-                                <td><a target="_blank" href="{{reposFollower.html_url}}">{{reposFollower.login}}</a></td>
-                                <td>{{reposFollower.type}}</td>
-                            </tr>
-                        {% endfor %}
+                    {% for reposFollower in reposFollowers %}
+                    <tr class="table-active">
+                        <td>{{reposFollower.id}}</td>
+                        <td><a target="_blank" href="{{reposFollower.html_url}}">{{reposFollower.login}}</a></td>
+                        <td>{{reposFollower.type}}</td>
+                    </tr>
+                    {% endfor %}
 
                     </tbody>
                 </table>
@@ -119,13 +123,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                        {% for reposFollowing in reposFollowings %}
-                            <tr class="table-active">
-                                <td>{{reposFollowing.id}}</td>
-                                <td><a target="_blank" href="{{reposFollowing.html_url}}">{{reposFollowing.login}}</a></td>
-                                <td>{{reposFollowing.type}}</td>
-                            </tr>
-                        {% endfor %}
+                    {% for reposFollowing in reposFollowings %}
+                    <tr class="table-active">
+                        <td>{{reposFollowing.id}}</td>
+                        <td><a target="_blank" href="{{reposFollowing.html_url}}">{{reposFollowing.login}}</a></td>
+                        <td>{{reposFollowing.type}}</td>
+                    </tr>
+                    {% endfor %}
 
                     </tbody>
                 </table>
@@ -183,11 +187,19 @@
                             <select id="user_time_zone" class="form-control" size="0">
                                 <option value="Hawaii">(GMT-10:00) Hawaii</option>
                                 <option value="Alaska">(GMT-09:00) Alaska</option>
-                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp;
+                                    Canada)
+                                </option>
                                 <option value="Arizona">(GMT-07:00) Arizona</option>
-                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp;
+                                    Canada)
+                                </option>
+                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central
+                                    Time (US &amp; Canada)
+                                </option>
+                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp;
+                                    Canada)
+                                </option>
                                 <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
                             </select>
                         </div>
@@ -272,11 +284,19 @@
                             <select id="user_time_zone" class="form-control" size="0">
                                 <option value="Hawaii">(GMT-10:00) Hawaii</option>
                                 <option value="Alaska">(GMT-09:00) Alaska</option>
-                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp;
+                                    Canada)
+                                </option>
                                 <option value="Arizona">(GMT-07:00) Arizona</option>
-                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp;
+                                    Canada)
+                                </option>
+                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central
+                                    Time (US &amp; Canada)
+                                </option>
+                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp;
+                                    Canada)
+                                </option>
                                 <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
                             </select>
                         </div>
