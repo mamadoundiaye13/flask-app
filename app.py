@@ -1,12 +1,21 @@
-from flask import Flask
+from flask import Flask, redirect
 from flask import render_template
 import requests
+from config import Config
+from form import IndexForm
+
 app = Flask(__name__)
+app.config.from_object(Config)
+app.debug = True
 
 """ formulaire """
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
-     return render_template('index.html')
+    form = IndexForm()
+    if form.validate_on_submit():
+        return redirect('http://127.0.0.1:5000/user/' + form.username.data)
+
+    return render_template('index.html', title='Username', form=form)
 
 @app.route('/repos/')
 def getAllRepos():
@@ -22,10 +31,13 @@ def getAllRepos():
 @app.route('/user/')
 def getUser(name=None):
     url = "https://api.github.com/users/"+ name
-    r = requests.get(url)
-    user = r.json()
+    response = requests.get(url)
+    user = response.json()
 
-    return render_template('user.html', user = user)
+    if response.status_code == 200:
+        return render_template('user.html', user = user)
+    elif response.status_code == 404:
+        return "Not Found"
 
 @app.route('/repos/<name>')
 def getOneRepos(name=None):
