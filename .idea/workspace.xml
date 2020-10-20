@@ -4,7 +4,6 @@
     <list default="true" id="9ba2c22e-5e00-405a-95a3-b40ea276d385" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/all-repos.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/all-repos.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603183989240</updated>
-      <workItem from="1603183990332" duration="15799000" />
+      <workItem from="1603183990332" duration="16687000" />
     </task>
     <task id="LOCAL-00001" summary="Add template">
       <created>1603195586836</created>
@@ -71,7 +70,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603206104713</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add vue repos">
+      <created>1603207457081</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603207457081</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,13 +88,14 @@
     <MESSAGE value="Add template" />
     <MESSAGE value="form" />
     <MESSAGE value="form valide" />
-    <option name="LAST_COMMIT_MESSAGE" value="form valide" />
+    <MESSAGE value="Add vue repos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add vue repos" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2" timestamp="1603206104366">
+    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2" timestamp="1603207456824">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
-    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2/72.27.1528.873@72.27.1528.873" timestamp="1603206104366" />
+    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2/72.27.1528.873@72.27.1528.873" timestamp="1603207456824" />
     <state x="614" y="213" width="424" height="520" key="FileChooserDialogImpl" timestamp="1603195545328">
       <screen x="72" y="27" width="1528" height="873" />
     </state>

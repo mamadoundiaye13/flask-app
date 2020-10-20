@@ -24,7 +24,7 @@ def getAllRepos(name=None):
 
     repos = list(json_obj)
 
-    return render_template('all-repos.html', repos = c)
+    return render_template('all-repos.html', repos = repos)
 
 @app.route('/user/<name>')
 @app.route('/user/')
