@@ -6,7 +6,6 @@ from form import IndexForm
 
 app = Flask(__name__)
 app.config.from_object(Config)
-app.debug = True
 
 """ formulaire """
 @app.route('/', methods=['POST', 'GET'])
@@ -17,15 +16,15 @@ def index():
 
     return render_template('index.html', title='Username', form=form)
 
-@app.route('/repos/')
-def getAllRepos():
-    url = "https://api.github.com/users/alex/repos"
+@app.route('/user/repos/<name>')
+def getAllRepos(name=None):
+    url = "https://api.github.com/users/" + name  + "/repos"
     r = requests.get(url)
     json_obj = r.json()
 
-    owner = list(json_obj["owner"])
+    repos = list(json_obj)
 
-    return render_template('all-repos.html', owner = owner)
+    return render_template('all-repos.html', repos = c)
 
 @app.route('/user/<name>')
 @app.route('/user/')
@@ -42,3 +41,6 @@ def getUser(name=None):
 @app.route('/repos/<name>')
 def getOneRepos(name=None):
     return render_template('one-repos.html', name=name)
+
+if __name__ == '__main__' :
+    app.run(debug = True)
