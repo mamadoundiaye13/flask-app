@@ -37,7 +37,7 @@ def getUser(name=None):
     reposFollowers = list(json_obj_followers)
 
     urlFollowings = "https://api.github.com/users/" + name  + "/following"
-    responseFollowings = requests.get(urlFollowers)
+    responseFollowings = requests.get(urlFollowings)
     json_obj_followings = responseFollowings.json()
     reposFollowings = list(json_obj_followings)
 

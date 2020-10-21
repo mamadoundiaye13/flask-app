@@ -4,8 +4,6 @@
     <list default="true" id="9ba2c22e-5e00-405a-95a3-b40ea276d385" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/one-repos.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/one-repos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603183989240</updated>
       <workItem from="1603183990332" duration="38095000" />
-      <workItem from="1603258939332" duration="8713000" />
+      <workItem from="1603258939332" duration="9512000" />
     </task>
     <task id="LOCAL-00001" summary="Add template">
       <created>1603195586836</created>
@@ -145,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603229856064</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add page one repo">
+      <created>1603267704847</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1603267704847</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,13 +169,14 @@
     <MESSAGE value="refactor code" />
     <MESSAGE value="full repos" />
     <MESSAGE value="update user.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="update user.html" />
+    <MESSAGE value="Add page one repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add page one repo" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2" timestamp="1603229855980">
+    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2" timestamp="1603267704519">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
-    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2/72.27.1528.873@72.27.1528.873" timestamp="1603229855980" />
+    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2/72.27.1528.873@72.27.1528.873" timestamp="1603267704519" />
     <state x="614" y="213" width="424" height="520" key="FileChooserDialogImpl" timestamp="1603222016493">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
