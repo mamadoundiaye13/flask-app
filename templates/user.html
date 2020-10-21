@@ -40,7 +40,9 @@
                     <div class="col-md-6">
                         <h6>Les Repos</h6>
                         {% for repo in repos %}
-                        <a href="#" class="badge badge-dark badge-pill">{{repo.name}}</a>
+                        <a href="{{ url_for('getOneRepos',name= user.login , id = repo.id, reposName = repo.name) }}" class="badge badge-dark badge-pill">
+                            {{repo.name}}
+                        </a>
                         {% endfor%}
                         <hr>
                         <span class="badge badge-primary">
@@ -80,7 +82,7 @@
                             {% for reposEvent in reposEvents %}
                             <tr class="table-active">
                                 <td>{{reposEvent.type}}</td>
-                                <td>{{reposEvent.actor.login}</td>
+                                <td>{{reposEvent.actor.login}}</td>
                                 <td>{{reposEvent.repo.name}}</td>
                                 <td>{{reposEvent.created_at}}</td>
                             </tr>

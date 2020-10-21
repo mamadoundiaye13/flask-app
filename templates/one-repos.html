@@ -1,23 +1,43 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="bs-docs-section">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="page-header">
-                <h1 id="containers">Containers</h1>
-            </div>
-            <div class="bs-component">
-                <div class="jumbotron">
-                    <h1 class="display-3">Hello, world!</h1>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                    <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                    <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                    </p>
+    {% for repo in repos%}
+        {% if repo.id == id %}
+            <div class="bs-docs-section">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="page-header">
+                            <h1 id="containers"><strong>Full Name</strong>: {{repo.full_name}}</h1>
+                        </div>
+                        <div class="bs-component">
+                            <div class="jumbotron">
+                                <h2 class="display-3"><strong>Name</strong>: {{repo.name}}</h2>
+                                <h2 class="display-3"><strong>Auteur</strong>: {{repo.owner.login}}</h2>
+                                <p class="lead">github de : <a href="{{repo.owner.html_url}}" target="_blank">{{repo.owner.login}}</a></p>
+                                <p>Github du repo <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a> </p>
+                                <hr class="my-4">
+                                <p class="lead">Description: {{repo.description}}</p>
+                                <hr class="my-4">
+                                <p class="lead">Lien clone ssh: <code>{{repo.ssh_url}}</code></p>
+                                <p class="lead">Lien clone https: <code>{{repo.clone_url}}</code></p>
+                                <p class="lead">Lien clone github cli: <code>gh repo clone {{repo.full_name}}</code></p>
+                                <p class="lead">Lien svn: <code>{{repo.svn_url}}</code></p>
+                                <hr class="my-4">
+                                <p class="lead">homepage: <code>{{repo.homepage}}</code></p>
+                                <p class="lead">size: <code>{{repo.size}}</code></p>
+                                <p class="lead">language: <code>{{languages}}</code></p>
+                                <p class="lead">default branch: <code>{{repo.default_branch}}</code></p>
+                                <hr class="my-4">
+                                <p class="lead">license: <code>{{repo.license.name}}</code></p>
+                                <hr class="my-4">
+                                <p class="lead">created_at: <code>{{ repo.created_at }}</code></p>
+                                <p class="lead">updated_at: <code>{{ repo.updated_at }}</code></p>
+                                <p class="lead">pushed_at: <code>{{ repo.pushed_at }}</code></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-        </div>
-    </div>
-</div>
+            </div>
+        {% endif %}
+    {% endfor%}
 {% endblock %}

@@ -60,9 +60,26 @@ def getUser(name=None):
             response = response.json()
             )
 
+@app.route('/repos/<name>/<id>/<reposName>')
 @app.route('/repos/<name>')
-def getOneRepos(name=None):
-    return render_template('one-repos.html', name=name)
+@app.route('/repos/')
+def getOneRepos(name=None, id=None, reposName = None):
+
+    urlRepo = "https://api.github.com/users/" + name  + "/repos"
+    responseRepo = requests.get(urlRepo)
+    json_obj_repos = responseRepo.json()
+    repos = list(json_obj_repos)
+
+    urlLanguages = "https://api.github.com/repos/"+name+"/"+reposName+"/languages"
+    responseLanguages = requests.get(urlLanguages)
+    json_obj_languages = responseLanguages.json()
+    languages = list(json_obj_languages)
+
+    return render_template('one-repos.html',
+        repos = repos,
+        id = int(id),
+        languages = languages
+        )
 
 if __name__ == '__main__' :
     app.run(debug = True)
