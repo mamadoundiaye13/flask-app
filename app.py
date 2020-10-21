@@ -2,7 +2,7 @@ from flask import render_template, url_for, Flask, redirect
 import requests
 from config import Config
 from form import IndexForm
-
+from bs4 import BeautifulSoup as bs
 app = Flask(__name__)
 app.config.from_object(Config)
 
@@ -12,7 +12,22 @@ def index():
     if form.validate_on_submit():
         return redirect(url_for('getUser', name=form.username.data))
 
-    return render_template('index.html', title='Username', form=form)
+    url = "https://www.journaldunet.com/solutions/dsi/1420928-quels-sont-les-langages-les-mieux-maitrises-par-les-dev-francais/"
+    r = requests.get(url)
+    page = r.content
+    s = bs(page, 'html.parser')
+    images = s.find_all('img')
+    imgs = []
+
+    for img in images:
+        if (img.has_attr('src') and img['src'].endswith('.jpeg')):
+            imgs.append(img['src'])
+
+    return render_template('index.html',
+        title='Username',
+        form=form,
+        imgs = imgs
+        )
 
 @app.route('/user/<name>')
 @app.route('/user/')
