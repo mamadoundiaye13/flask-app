@@ -3,20 +3,20 @@
     <h1>Mettre un utilisateur github</h1>
     <form action="/" method="post" novalidate>
         {{ form.hidden_tag() }}
-        <p>
+        <div class="form-group">
             {{ form.username.label }}<br>
-            {{ form.username(size=32) }}
-        </p>
+            {{ form.username(size=32, class_="form-control") }}
+        </div>
         <p>{{ form.submit() }}</p>
     </form>
 
-    <div class="my-4">
-        <div class="row">
-            {% for img in imgs %}
-                <div class="col-lg-4 col-md-12 mb-4">
-                    <img src="{{img}}" class="img-fluid mb-4" alt="">
-                </div>
-            {% endfor%}
-        </div>
+    <div class="show" role="alert" aria-live="assertive" aria-atomic="true">
+        <h3>Historique:</h3>
+        {% for hist in history %}
+            <div class="toast-header">
+                <strong class="mr-auto"><a href="{{ url_for('getUser', name=hist[0]) }}">{{hist[0]}}</a></strong>
+                <small>{{hist[1]}}</small>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

@@ -1,33 +1,51 @@
-from flask import render_template, url_for, Flask, redirect
+from flask import render_template, url_for, Flask, redirect, request
 import requests
-from config import Config
+from config import *
 from form import IndexForm
 from bs4 import BeautifulSoup as bs
-app = Flask(__name__)
+from flask_mysqldb import MySQL
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+import time
+import numpy as np
+
+app = Flask(__name__, static_folder='assets')
 app.config.from_object(Config)
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'root'
+app.config['MYSQL_DB'] = 'DatabaseFlask'
+
+mysql = MySQL(app)
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
     form = IndexForm()
-    if form.validate_on_submit():
-        return redirect(url_for('getUser', name=form.username.data))
+    cur = mysql.connection.cursor()
+    if form.validate_on_submit() and request.method == "POST":
+        # Insertion du login tapé dans le input
+        try:
+            cur.execute("INSERT INTO user (username, date) VALUES (%s, current_timestamp())", (form.username.data,))
+            mysql.connection.commit()
+            return redirect(url_for('getUser', name=form.username.data))
+        except Exception as e:
+            print(e)
+            return redirect(url_for('getUser', name=form.username.data))
 
-    url = "https://www.journaldunet.com/solutions/dsi/1420928-quels-sont-les-langages-les-mieux-maitrises-par-les-dev-francais/"
-    r = requests.get(url)
-    page = r.content
-    s = bs(page, 'html.parser')
-    images = s.find_all('img')
-    imgs = []
+    # Recupération des users cherchés
+    try:
+        query = "SELECT * from user"
+        cur.execute(query)
+        history = cur.fetchall()
+        return render_template('index.html',
+            form=form,
+            history = list(history)
+            )
 
-    for img in images:
-        if (img.has_attr('src') and img['src'].endswith('.jpeg')):
-            imgs.append(img['src'])
-
-    return render_template('index.html',
-        title='Username',
-        form=form,
-        imgs = imgs
-        )
+    except Exception as e:
+        return (str(e))
 
 @app.route('/user/<name>')
 @app.route('/user/')
@@ -68,7 +86,7 @@ def getUser(name=None):
             reposFollowings = reposFollowings
             )
 
-    elif response.headers['X-RateLimit-Remaining'] == str(0):
+    else:
         return render_template('error.html',
             status_code = response.status_code,
             limit = int(response.headers['X-RateLimit-Remaining']),
@@ -95,6 +113,64 @@ def getOneRepos(name=None, id=None, reposName = None):
         id = int(id),
         languages = languages
         )
+
+@app.route('/infos/')
+def infos():
+    url ="https://sebastien.saunier.me/blog/2014/05/13/classement-technologique-des-villes-francaises.html"
+    url2 = "https://www.journaldunet.com/solutions/dsi/1420928-quels-sont-les-langages-les-mieux-maitrises-par-les-dev-francais/"
+
+    r = requests.get(url2)
+    page2 = r.content
+    page = requests.get(url)
+
+    s = bs(page2, 'html.parser')
+    images = s.find_all('img')
+    imgs = []
+
+    for img in images:
+        if (img.has_attr('src') and img['src'].endswith('.jpeg')):
+            imgs.append(img['src'])
+
+
+    ## nombres de users par Villes francaises
+
+    df_list = pd.read_html(page.text)
+    df = df_list[0]
+
+    if not os.path.exists('./assets'):
+        os.makedirs('assets')
+
+    x =df['Agglomération'].tolist()
+    y = df['Dev / 1000 habitants'].tolist()
+    fig, ax = plt.subplots()
+    width = 0.5
+    ind = np.arange(len(y))
+    ax.barh(ind, y, width, color="blue")
+    ax.set_yticks(ind+width/2)
+    ax.set_yticklabels(x, minor=False)
+    plt.title('Pourcentage du nombre de dev par agglomération')
+    plt.xlabel('Pourcentage')
+    plt.ylabel('Agglomération')
+    for i, v in enumerate(y):
+        ax.text(v, i + .20, str(v), color='blue', fontweight='bold')
+    plt.savefig('./assets/bar.png', format='png', bbox_inches='tight')
+
+    m =df['Agglomération'].tolist()
+    n = df['# GitHub'].tolist()
+    fig, bx = plt.subplots()
+    width = 0.5
+    ind = np.arange(len(n))
+    bx.barh(ind, n, width, color="blue")
+    bx.set_yticks(ind+width/2)
+    bx.set_yticklabels(m, minor=False)
+    plt.title("Nombre d'utilisateur GitHub par agglomération")
+    plt.xlabel("Nombre d'utilisateur GitHub")
+    plt.ylabel('Agglomération')
+    for i, v in enumerate(n):
+        bx.text(v, i + .20, str(v), color='blue', fontweight='bold')
+    plt.savefig('./assets/hist.png', format='png', bbox_inches='tight')
+    return render_template('infos.html', images = imgs)
+
 
 if __name__ == '__main__' :
     app.run(debug = True)

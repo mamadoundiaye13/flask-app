@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ba2c22e-5e00-405a-95a3-b40ea276d385" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.ipynb_checkpoints/dataViz-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/bar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/hist.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataViz.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/infos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +58,8 @@
       <option name="presentableId" value="Default" />
       <updated>1603183989240</updated>
       <workItem from="1603183990332" duration="38095000" />
-      <workItem from="1603258939332" duration="13836000" />
+      <workItem from="1603258939332" duration="13908000" />
+      <workItem from="1603352868767" duration="23240000" />
     </task>
     <task id="LOCAL-00001" summary="Add template">
       <created>1603195586836</created>
@@ -158,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603268614822</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="web scrapping">
+      <created>1603296607564</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1603296607564</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,13 +194,14 @@
     <MESSAGE value="update user.html" />
     <MESSAGE value="Add page one repo" />
     <MESSAGE value="update app.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="update app.py" />
+    <MESSAGE value="web scrapping" />
+    <option name="LAST_COMMIT_MESSAGE" value="web scrapping" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2" timestamp="1603268614669">
+    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2" timestamp="1603296607421">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
-    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2/72.27.1528.873@72.27.1528.873" timestamp="1603268614669" />
+    <state x="368" y="29" width="925" height="871" key="CommitChangelistDialog2/72.27.1528.873@72.27.1528.873" timestamp="1603296607421" />
     <state x="614" y="213" width="424" height="520" key="FileChooserDialogImpl" timestamp="1603222016493">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
@@ -194,14 +210,22 @@
       <screen x="72" y="27" width="1528" height="873" />
     </state>
     <state x="325" y="98" width="1022" height="737" key="SettingsEditor/72.27.1528.873@72.27.1528.873" timestamp="1603195550330" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1603369798695">
+      <screen x="72" y="27" width="1528" height="873" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/72.27.1528.873@72.27.1528.873" timestamp="1603369798695" />
+    <state x="172" y="127" width="1328" height="673" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603357107450">
+      <screen x="72" y="27" width="1528" height="873" />
+    </state>
+    <state x="172" y="127" width="1328" height="673" key="com.intellij.history.integration.ui.views.FileHistoryDialog/72.27.1528.873@72.27.1528.873" timestamp="1603357107450" />
     <state x="527" y="202" width="618" height="522" key="find.popup" timestamp="1603222020311">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
     <state x="527" y="202" width="618" height="522" key="find.popup/72.27.1528.873@72.27.1528.873" timestamp="1603222020311" />
-    <state x="500" y="207" key="run.anything.popup" timestamp="1603227408959">
+    <state x="500" y="207" key="run.anything.popup" timestamp="1603359389717">
       <screen x="72" y="27" width="1528" height="873" />
     </state>
-    <state x="500" y="207" key="run.anything.popup/72.27.1528.873@72.27.1528.873" timestamp="1603227408959" />
+    <state x="500" y="207" key="run.anything.popup/72.27.1528.873@72.27.1528.873" timestamp="1603359389717" />
     <state x="499" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1603198817235">
       <screen x="72" y="27" width="1528" height="873" />
     </state>

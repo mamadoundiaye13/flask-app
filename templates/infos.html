@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="my-4">
+        <div class="row">
+            <img src="{{url_for('static', filename='hist.png')}}" class="img-fluid mb-4" alt="">
+            {% for image in images %}
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <img src="{{image}}" class="img-fluid mb-4" alt="">
+                </div>
+            {% endfor%}
+            <img src="{{url_for('static', filename='bar.png')}}" class="img-fluid mb-12" alt="">
+        </div>
+    </div>
+
+{% endblock %}
