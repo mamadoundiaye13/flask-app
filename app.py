@@ -127,13 +127,13 @@ def infos():
     images = s.find_all('img')
     imgs = []
 
+    ## les images de JN
     for img in images:
         if (img.has_attr('src') and img['src'].endswith('.jpeg')):
             imgs.append(img['src'])
 
 
-    ## nombres de users par Villes francaises
-
+    ## nombres de users par Villes francaises && pourcentage
     df_list = pd.read_html(page.text)
     df = df_list[0]
 
